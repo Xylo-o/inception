@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+nginx:
+  build:
+  env_file:
+  container_name:
+  ports: 
+wordpress:
+  build:
+  env_file:
+  container_name:
+  ports:
+mariadb:
+  build:
+  env_file:
+  container_name:
+  ports:
