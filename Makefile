@@ -1,6 +1,6 @@
 build:
 	@echo "$(YELLOW)[Makefile]: $(NC)$(BLUE)Building services...$(NC)"
-	docker compose -f docker-compose.yml build
+	docker compose -f srcs/docker-compose.yml build
 	@echo "$(YELLOW)[Makefile]: $(NC)$(GREEN)Services build.$(NC)"
 
 up:
@@ -15,4 +15,5 @@ down:
 RED := \033[0;31m
 GREEN := \033[0;32m
 YELLOW := \033[0;33m
+BLUE := \033[0;34m
 NC := \033[0m
