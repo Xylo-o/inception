@@ -1,37 +1,18 @@
-NAME := btc
-CC := c++
-CCFLAGS := -Werror -Wextra -Wall -std=c++17
+build:
+	@echo "$(YELLOW)[Makefile]: $(NC)$(BLUE)Building services...$(NC)"
+	docker compose -f docker-compose.yml build
+	@echo "$(YELLOW)[Makefile]: $(NC)$(GREEN)Services build.$(NC)"
 
-SRC := main.cpp \
-	BitcoinExchange.cpp
-
-OBJ := $(SRC:.cpp=.o)
-
-all: $(NAME)
-
-%.o: %.cpp compile_message
-	@$(CC) $(CCFLAGS) -c $< -o $@
-
-$(NAME): $(OBJ)
-	@$(CC) $(CCFLAGS) $^ -o $@
-	@echo "$(GREEN)Compiled successfully$(NC)"
-
-clean:
-	@echo "$(YELLOW)Cleaning the object files$(NC)"
-	@rm -rf $(OBJ)
-
-fclean:
-	@echo "$(RED)Cleaning the whole program$(NC)"
-	@rm -rf $(OBJ) $(NAME)
-
-re: fclean all
-
-compile_message:
-	@echo "$(YELLOW)C$(GREEN)o$(RED)m$(YELLOW)p$(GREEN)i$(RED)l$(YELLOW)i$(GREEN)n$(RED)g$(YELLOW).$(GREEN).$(RED).$(NC)"
+up:
+	@echo "$(YELLOW)[Makefile]: $(NC)$(BLUE)Starting all services...$(NC)"
+	docker compose up -d
+	@echo "$(YELLOW)[Makefile]: $(NC)$(GREEN)Services started.$(NC)"
+down:
+	@echo "$(YELLOW)[Makefile]: $(NC)$(BLUE)Stopping services...$(NC)"
+	docker compose down
+	@echo "$(YELLOW)[Makefile]: $(NC)$(RED)Services stopped.$(NC)"
 
 RED := \033[0;31m
 GREEN := \033[0;32m
 YELLOW := \033[0;33m
 NC := \033[0m
-
-.PHONY: all clean fclean re
