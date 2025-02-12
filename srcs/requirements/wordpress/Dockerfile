@@ -15,6 +15,12 @@ RUN apk update && apk add --no-cache \
     php8-zip \
     curl
 
-COPY
+WORKDIR /var/www/html
 
-EXPOSE
+RUN curl -O https://wordpress.org/latest.tar.gz && \
+	tar -xzf latest.tar.gz --strip-components=1 && \
+	rm latest.tar.gz
+
+RUN sed -i 's/listen = 127.0.0.1:9000/listen = 9000/' /etc/php8/php-fpm.d/www.conf
+
+CMD ["php-fpm8", "-F"]
