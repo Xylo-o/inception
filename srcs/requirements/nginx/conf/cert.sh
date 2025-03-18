@@ -1,6 +1,6 @@
 #!/bin/sh
 # This script generates a self-signed certificate for NGINX.
-# Usage: ./generate_cert.sh [DOMAIN_NAME]
+# Usage: ./cert.sh [DOMAIN_NAME]
 # Default DOMAIN_NAME is taken from the environment variable or set to "adprzyby.42.fr"
 
 DOMAIN_NAME=${1:-${DOMAIN_NAME:-"adprzyby.42.fr"}}

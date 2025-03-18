@@ -7,7 +7,7 @@ RUN			apk update && apk add	\
 					
 RUN			rm -rf /var/cache/apk/*
 
-RUN			./conf/cert.sh
+RUN			chmod +x ./conf/cert.sh
 
 COPY		./conf/nginx.conf /etc/nginx/nginx.conf
 
