@@ -13,6 +13,6 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -out "$CRT_FILE" \
     -subj "/CN=$DOMAIN_NAME"
 
-echo "${\033[0;32m}Self-signed certificate generated:${\033[0m}"
-echo "${\033[0;34m}Certificate:${\033[0m} $CRT_FILE"
-echo "${\033[0;36m}Key:${\033[0m} $KEY_FILE"
+echo -e "${\033[0;32m}Self-signed certificate generated:${\033[0m}"
+echo -e "${\033[0;34m}Certificate:${\033[0m} $CRT_FILE"
+echo -e "${\033[0;36m}Key:${\033[0m} $KEY_FILE"
