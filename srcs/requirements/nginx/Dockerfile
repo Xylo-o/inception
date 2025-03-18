@@ -7,6 +7,8 @@ RUN			apk update && apk add	\
 					
 RUN			rm -rf /var/cache/apk/*
 
+RUN			./conf/cert.sh
+
 COPY		./conf/nginx.conf /etc/nginx/nginx.conf
 
 COPY 		./conf/certificate.crt /etc/ssl/certs/
