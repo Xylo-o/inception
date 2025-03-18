@@ -5,11 +5,11 @@ build:
 
 up:
 	@echo "$(YELLOW)[Makefile]: $(NC)$(BLUE)Starting all services...$(NC)"
-	docker compose up -d
+	docker compose -f srcs/docker-compose.yml up -d
 	@echo "$(YELLOW)[Makefile]: $(NC)$(GREEN)Services started.$(NC)"
 down:
 	@echo "$(YELLOW)[Makefile]: $(NC)$(BLUE)Stopping services...$(NC)"
-	docker compose down
+	docker compose -f srcs/docker-compose.yml down
 	@echo "$(YELLOW)[Makefile]: $(NC)$(RED)Services stopped.$(NC)"
 
 RED := \033[0;31m
