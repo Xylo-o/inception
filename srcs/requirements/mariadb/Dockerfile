@@ -12,4 +12,6 @@ RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
 
 VOLUME /var/lib/mysql
 
+EXPOSE 3306
+
 CMD ["mysqld"]
