@@ -1,18 +1,18 @@
 FROM alpine:3.20.5
 
 RUN apk add --update --no-cache \
-    php8 \
-    php8-fpm \
-    php8-mysqli \
-    php8-json \
-    php8-openssl \
-    php8-curl \
-    php8-dom \
-    php8-exif \
-    php8-fileinfo \
-    php8-mbstring \
-    php8-xml \
-    php8-zip \
+    php83 \
+    php83-fpm \
+    php83-mysqli \
+    php83-json \
+    php83-openssl \
+    php83-curl \
+    php83-dom \
+    php83-exif \
+    php83-fileinfo \
+    php83-mbstring \
+    php83-xml \
+    php83-zip \
     curl
 
 WORKDIR /var/www/html
