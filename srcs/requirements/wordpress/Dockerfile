@@ -21,6 +21,8 @@ RUN curl -O https://wordpress.org/latest.tar.gz && \
 	tar -xzf latest.tar.gz --strip-components=1 && \
 	rm latest.tar.gz
 
+COPY ./conf/wp-config.php /var/www/html/wp-config.php
+
 RUN sed -i 's/listen = 127.0.0.1:9000/listen = 9000/' /etc/php8/php-fpm.d/www.conf
 
 CMD ["php-fpm8", "-F"]
