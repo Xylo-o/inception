@@ -19,25 +19,26 @@ services:
   wordpress:
     build: ./requirements/wordpress
     container_name: wordpress
-    env_file:
-      - WORDPRESS_DB_HOST: mariadb
-      - WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
-      - WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
-      - WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+    environment:
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
     volumes:
       - wordpress:/var/www/html
     depends_on:
       - mariadb
     networks:
       - inception
+
   mariadb:
     build: ./requirements/mariadb
     container_name: mariadb
-    env_file:
-      - MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE: ${WORDPRESS_DB_NAME}
-      - MYSQL_USER: ${WORDPRESS_DB_USER}
-      - MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME}
+      MYSQL_USER: ${WORDPRESS_DB_USER}
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD}
     volumes:
       - mariadb:/var/lib/mysql
     networks:
