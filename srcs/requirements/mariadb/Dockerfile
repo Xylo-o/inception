@@ -6,6 +6,7 @@ COPY ./conf/mariadb.cnf /etc/my.cnf
 COPY ./tools/init.sql.tpl /docker-entrypoint-initdb.d/init.sql.tpl
 COPY ./tools/entrypoint.sh /entrypoint.sh
 
+RUN apk add --no-cache gettext
 RUN chmod +x /entrypoint.sh
 
 RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
