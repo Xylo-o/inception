@@ -9,4 +9,4 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 chmod 644 /etc/ssl/certs/certificate.crt
 chmod 600 /etc/ssl/private/cert_key.key
 
-echo -e "${\033[0;32m}Self-signed certificate generated:${\033[0m}"
+echo -e "\033[0;32mSelf-signed certificate generated\033[0m"
