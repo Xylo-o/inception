@@ -31,6 +31,8 @@ services:
       - mariadb
     networks:
       - inception
+    ports:
+      - "9000:9000"
 
   mariadb:
     build: ./requirements/mariadb
