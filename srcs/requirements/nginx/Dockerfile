@@ -9,7 +9,6 @@ RUN chmod +x /tmp/cert.sh
 
 RUN /tmp/cert.sh
 
-COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 COPY ./conf/default.conf /etc/nginx/http.d/default.conf
 
 RUN mkdir -p /var/www/html

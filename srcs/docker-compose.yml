@@ -14,7 +14,6 @@ services:
       - inception
     env_file:
       - .env
-
   wordpress:
     build: ./requirements/wordpress
     container_name: wordpress
